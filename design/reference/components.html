@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오늘 뭐 하지? — 디자인 구성요소</title>
+    <link rel="stylesheet" href="./components.css" />
+  </head>
+  <body class="component-catalog">
+    <header class="catalog-header">
+      <h1>오늘 뭐 하지? 디자인 구성요소</h1>
+      <p>최종 화면이 아닌 개별 요소 확인용 카탈로그입니다. JavaScript 동작은 포함하지 않습니다.</p>
+    </header>
+
+    <main class="catalog-grid">
+      <section class="component-card">
+        <div class="component-card__header">
+          <h2 class="component-card__title">전체 배경과 둥근 외곽 프레임</h2>
+          <p class="component-card__description">흰색 바탕, 큰 모서리 반경과 부드러운 그림자</p>
+        </div>
+        <div class="component-card__preview component-card__preview--dark">
+          <div class="frame-preview" aria-label="둥근 흰색 외곽 프레임 예시"></div>
+        </div>
+      </section>
+
+      <section class="component-card">
+        <div class="component-card__header">
+          <h2 class="component-card__title">제목과 노란색 장식</h2>
+          <p class="component-card__description">Black Han Sans 웹폰트와 #FFD200 강조색</p>
+        </div>
+        <div class="component-card__preview">
+          <div class="roulette-title-group">
+            <img
+              class="roulette-title-group__decoration"
+              src="./svg/title-rays.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <p class="roulette-title">오늘 뭐 <span class="roulette-title__accent">하지</span>?</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="component-card component-card--wide">
+        <div class="component-card__header">
+          <h2 class="component-card__title">6칸 원형 룰렛</h2>
+          <p class="component-card__description">원판·테두리·구분선·포인터·중앙 허브는 SVG/CSS, 그림은 기존 PNG 원본</p>
+        </div>
+        <div class="component-card__preview">
+          <div class="wheel-preview">
+            <div class="roulette-wheel" aria-label="6개 선택지가 들어간 룰렛 구성요소">
+              <img class="roulette-wheel__board" src="./svg/roulette-board.svg" alt="" />
+              <img class="roulette-wheel__pointer" src="./svg/roulette-pointer.svg" alt="노란색 룰렛 화살표" />
+
+              <span class="roulette-wheel__item roulette-wheel__item--brain">
+                <img src="../icon_images/icon_06_뇌.png" alt="뇌" />
+              </span>
+              <span class="roulette-wheel__item roulette-wheel__item--vr">
+                <img src="../icon_images/icon_03_VR.png" alt="VR" />
+              </span>
+              <span class="roulette-wheel__item roulette-wheel__item--art">
+                <img src="../icon_images/icon_05_예술.png" alt="예술" />
+              </span>
+              <span class="roulette-wheel__item roulette-wheel__item--code">
+                <img src="../icon_images/icon_04_코딩.png" alt="코딩" />
+              </span>
+              <span class="roulette-wheel__item roulette-wheel__item--think">
+                <img src="../icon_images/icon_01_생각.png" alt="생각" />
+              </span>
+              <span class="roulette-wheel__item roulette-wheel__item--book">
+                <img src="../icon_images/icon_02_책.png" alt="책" />
+              </span>
+
+              <span class="roulette-wheel__hub" aria-hidden="true"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="component-card component-card--wide">
+        <div class="component-card__header">
+          <h2 class="component-card__title">버튼 세트</h2>
+          <p class="component-card__description">텍스트는 HTML, 형태와 입체감은 CSS, 보조 아이콘은 SVG</p>
+        </div>
+        <div class="component-card__preview">
+          <div class="button-preview">
+            <button class="roulette-button roulette-button--primary" type="button">시작하기</button>
+            <button class="roulette-button roulette-button--secondary" type="button">
+              <img class="roulette-button__icon" src="./svg/shuffle.svg" alt="" />
+              <span>섞기</span>
+            </button>
+            <button class="roulette-button roulette-button--secondary" type="button">
+              <img class="roulette-button__icon" src="./svg/reset.svg" alt="" />
+              <span>초기화</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="component-card component-card--wide">
+        <div class="component-card__header">
+          <h2 class="component-card__title">결과 오버레이와 팝업</h2>
+          <p class="component-card__description">반투명 검은 배경과 흰색 팝업. 예시는 기존 결과 삽화를 그대로 참조</p>
+        </div>
+        <div class="component-card__preview component-card__preview--dark">
+          <div class="result-preview">
+            <div class="result-overlay">
+              <div class="result-popup">
+                <img class="result-popup__image" src="../result_images/06_뇌.jpg" alt="뇌 선택 결과 삽화" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@600;700;800;900&display=swap");
+
+:root {
+  --roulette-yellow: #ffd200;
+  --roulette-yellow-deep: #efb900;
+  --roulette-black: #111111;
+  --roulette-charcoal: #292929;
+  --roulette-line: #d8d8d8;
+  --roulette-white: #ffffff;
+  --roulette-shadow: 0 18px 38px rgba(0, 0, 0, 0.15);
+  --roulette-radius-xl: 48px;
+  --roulette-radius-lg: 30px;
+  --roulette-radius-md: 22px;
+  --roulette-title-font: "Black Han Sans", "Arial Black", sans-serif;
+  --roulette-body-font: "Noto Sans KR", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   앱 배경 및 외곽 프레임
+   -------------------------------------------------------------------------- */
+
+.roulette-page-background {
+  min-height: 100%;
+  background: #fff;
+}
+
+.roulette-outer-frame {
+  width: min(100%, 760px);
+  min-height: 980px;
+  border-radius: var(--roulette-radius-xl);
+  background: var(--roulette-white);
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   제목과 작은 장식
+   글자는 언제나 실제 HTML 텍스트로 넣는다.
+   -------------------------------------------------------------------------- */
+
+.roulette-title {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  color: var(--roulette-black);
+  font-family: var(--roulette-title-font);
+  font-size: clamp(52px, 9vw, 92px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+}
+
+.roulette-title__accent {
+  position: relative;
+  display: inline-block;
+}
+
+.roulette-title__accent::after {
+  position: absolute;
+  right: -0.04em;
+  bottom: -0.07em;
+  left: -0.04em;
+  height: 0.09em;
+  border-radius: 999px;
+  background: var(--roulette-yellow);
+  content: "";
+  transform: none;
+}
+
+.roulette-title-group {
+  position: relative;
+  display: inline-flex;
+  padding: 22px 18px 16px 54px;
+}
+
+.roulette-title-group__decoration {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  width: 62px;
+  height: 50px;
+}
+
+/* --------------------------------------------------------------------------
+   6칸 룰렛: 원판 SVG 위에 기존 PNG 아이콘만 배치한다.
+   -------------------------------------------------------------------------- */
+
+.roulette-wheel {
+  position: relative;
+  width: min(100%, 700px);
+  aspect-ratio: 1;
+}
+
+.roulette-wheel__board {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.roulette-wheel__pointer {
+  position: absolute;
+  z-index: 4;
+  top: -4.5%;
+  left: 50%;
+  width: 14.5%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 7px 4px rgba(0, 0, 0, 0.22));
+}
+
+.roulette-wheel__hub {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  width: 19%;
+  aspect-ratio: 1;
+  border: clamp(8px, 1.8vw, 15px) solid var(--roulette-black);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fff 15%, #e7e7e7 86%);
+  box-shadow:
+    inset 0 0 0 5px #4b4b4b,
+    0 7px 10px rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, -50%);
+}
+
+.roulette-wheel__item {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  width: 22%;
+  aspect-ratio: 1;
+  place-items: center;
+  transform: translate(-50%, -50%);
+}
+
+.roulette-wheel__item img {
+  display: block;
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.12));
+}
+
+.roulette-wheel__item--brain { left: 35%; top: 27%; }
+.roulette-wheel__item--vr { left: 63.5%; top: 26.6%; }
+.roulette-wheel__item--art { left: 77%; top: 50%; }
+.roulette-wheel__item--code { left: 65%; top: 76%; }
+.roulette-wheel__item--think { left: 36.5%; top: 73.4%; }
+.roulette-wheel__item--book { left: 23%; top: 50%; }
+
+/* --------------------------------------------------------------------------
+   버튼
+   -------------------------------------------------------------------------- */
+
+.roulette-button {
+  display: inline-flex;
+  min-height: 84px;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid var(--roulette-black);
+  border-radius: var(--roulette-radius-md);
+  background: var(--roulette-white);
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.18);
+  color: var(--roulette-black);
+  cursor: default;
+  font-family: var(--roulette-body-font);
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.roulette-button--primary {
+  position: relative;
+  min-width: 560px;
+  min-height: 126px;
+  border-radius: 34px;
+  background: linear-gradient(180deg, #ffdc27 0%, var(--roulette-yellow) 64%, var(--roulette-yellow-deep) 100%);
+  box-shadow:
+    inset 0 -7px 0 rgba(185, 133, 0, 0.28),
+    0 10px 0 rgba(0, 0, 0, 0.18);
+  font-family: var(--roulette-title-font);
+  font-size: 62px;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.roulette-button--primary::before,
+.roulette-button--primary::after {
+  width: 38px;
+  height: 44px;
+  background: url("./svg/button-rays.svg") center / contain no-repeat;
+  content: "";
+}
+
+.roulette-button--primary::before {
+  margin-right: 34px;
+}
+
+.roulette-button--primary::after {
+  margin-left: 34px;
+  transform: scaleX(-1);
+}
+
+.roulette-button--secondary {
+  min-width: 270px;
+  padding: 0 36px;
+  gap: 22px;
+}
+
+.roulette-button__icon {
+  display: block;
+  width: 46px;
+  height: 46px;
+}
+
+/* --------------------------------------------------------------------------
+   결과 오버레이와 팝업
+   result-overlay를 실제 화면 컨테이너 안에서 absolute로 사용할 수 있다.
+   -------------------------------------------------------------------------- */
+
+.result-overlay {
+  position: absolute;
+  z-index: 10;
+  display: grid;
+  background: rgba(0, 0, 0, 0.84);
+  inset: 0;
+  place-items: center;
+}
+
+.result-popup {
+  width: min(88%, 740px);
+  padding: 36px;
+  overflow: hidden;
+  border-radius: 54px;
+  background: var(--roulette-white);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.28);
+}
+
+.result-popup__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 28px;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   구성요소 확인용 카탈로그. 실제 앱 레이아웃에는 필요하지 않다.
+   -------------------------------------------------------------------------- */
+
+.component-catalog {
+  min-width: 320px;
+  margin: 0;
+  padding: 64px 28px 100px;
+  background: #efefef;
+  color: var(--roulette-black);
+  font-family: var(--roulette-body-font);
+}
+
+.catalog-header,
+.catalog-grid {
+  width: min(100%, 1120px);
+  margin-inline: auto;
+}
+
+.catalog-header {
+  margin-bottom: 36px;
+}
+
+.catalog-header h1 {
+  margin: 0 0 10px;
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.catalog-header p,
+.component-card__description {
+  margin: 0;
+  color: #606060;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.component-card {
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.component-card--wide {
+  grid-column: 1 / -1;
+}
+
+.component-card__header {
+  padding: 24px 26px 0;
+}
+
+.component-card__title {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.component-card__preview {
+  display: grid;
+  min-height: 260px;
+  padding: 34px;
+  place-items: center;
+}
+
+.component-card__preview--dark {
+  background: #d9d9d9;
+}
+
+.frame-preview {
+  width: 280px;
+  height: 360px;
+  border-radius: 34px;
+  background: #fff;
+  box-shadow: var(--roulette-shadow);
+}
+
+.wheel-preview {
+  width: min(100%, 650px);
+  padding: 42px;
+}
+
+.button-preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.button-preview .roulette-button--primary {
+  min-width: min(100%, 560px);
+}
+
+.result-preview {
+  position: relative;
+  width: min(100%, 440px);
+  aspect-ratio: 9 / 13;
+  overflow: hidden;
+  border-radius: 34px;
+  background: #fff;
+}
+
+@media (max-width: 760px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .component-card--wide {
+    grid-column: auto;
+  }
+
+  .component-card__preview {
+    padding: 22px;
+  }
+
+  .roulette-button--primary {
+    min-width: 100%;
+    min-height: 94px;
+    font-size: 44px;
+  }
+
+  .roulette-button--primary::before,
+  .roulette-button--primary::after {
+    width: 28px;
+    height: 34px;
+  }
+
+  .roulette-button--primary::before { margin-right: 18px; }
+  .roulette-button--primary::after { margin-left: 18px; }
+
+  .roulette-button--secondary {
+    min-width: 220px;
+    min-height: 72px;
+    font-size: 26px;
+  }
+}

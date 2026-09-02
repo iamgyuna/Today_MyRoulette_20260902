@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 120" role="img" aria-labelledby="title">
+  <title id="title">노란색 룰렛 화살표</title>
+  <path d="M22 14h66c10 0 16 10 11 19L67 102c-5 11-19 11-24 0L11 33C6 24 12 14 22 14Z" fill="#ffd200" stroke="#111" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M25 25h59" fill="none" stroke="#ffea72" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+</svg>

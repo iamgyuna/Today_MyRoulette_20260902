@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" role="img" aria-labelledby="title desc">
+  <title id="title">6칸 룰렛 원판</title>
+  <desc id="desc">굵은 검은 테두리와 여섯 개의 영역 구분선이 있는 흰색 원판</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="10" flood-color="#000" flood-opacity=".2"/>
+    </filter>
+    <linearGradient id="rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#424242"/>
+      <stop offset=".48" stop-color="#171717"/>
+      <stop offset="1" stop-color="#343434"/>
+    </linearGradient>
+  </defs>
+  <g filter="url(#shadow)">
+    <circle cx="350" cy="350" r="326" fill="url(#rim)" stroke="#111" stroke-width="10"/>
+    <circle cx="350" cy="350" r="295" fill="#fff" stroke="#111" stroke-width="8"/>
+    <g stroke="#d8d8d8" stroke-width="4" stroke-linecap="round">
+      <path d="M350 350V55"/>
+      <path d="M350 350 605.5 202.5"/>
+      <path d="M350 350 605.5 497.5"/>
+      <path d="M350 350V645"/>
+      <path d="M350 350 94.5 497.5"/>
+      <path d="M350 350 94.5 202.5"/>
+    </g>
+    <circle cx="350" cy="350" r="295" fill="none" stroke="#ececec" stroke-width="3"/>
+  </g>
+</svg>

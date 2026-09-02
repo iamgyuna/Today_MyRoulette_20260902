@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFD200" />
+    <meta name="description" content="오늘 무엇을 할지 즐겁게 정해주는 인터랙티브 룰렛" />
+    <title>오늘 뭐 하지?</title>
+    <link rel="stylesheet" href="./design/reference/components.css" />
+    <link rel="stylesheet" href="./design/reference/static-ui.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body class="game-page">
+    <main class="game-shell">
+      <section class="game-panel" aria-labelledby="game-title">
+        <button class="sound-toggle" id="sound-toggle" type="button" aria-label="소리 끄기" aria-pressed="true">
+          <svg class="sound-toggle__on" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M5 13h6l7-6v18l-7-6H5z" />
+            <path d="M22 11c2.8 2.8 2.8 7.2 0 10M25 8c4.4 4.4 4.4 11.6 0 16" />
+          </svg>
+          <svg class="sound-toggle__off" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M5 13h6l7-6v18l-7-6H5z" />
+            <path d="m22 12 7 8M29 12l-7 8" />
+          </svg>
+        </button>
+
+        <div class="game-visual">
+          <header class="game-heading">
+            <img class="game-heading__decoration" src="./design/reference/svg/title-rays.svg" alt="" aria-hidden="true" />
+            <h1 class="roulette-title" id="game-title">오늘 뭐 <span class="roulette-title__accent">하지</span>?</h1>
+          </header>
+
+          <div class="wheel-stage" id="wheel-stage">
+            <div class="roulette-wheel" id="roulette-wheel" aria-label="6개 선택지가 들어간 룰렛">
+              <div class="roulette-wheel__rotor" id="wheel-rotor">
+                <img class="roulette-wheel__board" src="./design/reference/svg/roulette-board.svg" alt="" aria-hidden="true" />
+
+                <span class="roulette-wheel__item roulette-wheel__item--brain" data-slot="0" data-item-id="brain">
+                  <img src="./design/icon_images/icon_06_뇌.png" alt="뇌" />
+                </span>
+                <span class="roulette-wheel__item roulette-wheel__item--vr" data-slot="1" data-item-id="vr">
+                  <img src="./design/icon_images/icon_03_VR.png" alt="VR" />
+                </span>
+                <span class="roulette-wheel__item roulette-wheel__item--art" data-slot="2" data-item-id="art">
+                  <img src="./design/icon_images/icon_05_예술.png" alt="예술" />
+                </span>
+                <span class="roulette-wheel__item roulette-wheel__item--code" data-slot="3" data-item-id="code">
+                  <img src="./design/icon_images/icon_04_코딩.png" alt="코딩" />
+                </span>
+                <span class="roulette-wheel__item roulette-wheel__item--think" data-slot="4" data-item-id="think">
+                  <img src="./design/icon_images/icon_01_생각.png" alt="로댕의 생각하는 사람" />
+                </span>
+                <span class="roulette-wheel__item roulette-wheel__item--book" data-slot="5" data-item-id="book">
+                  <img src="./design/icon_images/icon_02_책.png" alt="책" />
+                </span>
+
+                <span class="roulette-wheel__hub" aria-hidden="true"></span>
+              </div>
+              <img class="roulette-wheel__pointer" id="wheel-pointer" src="./design/reference/svg/roulette-pointer.svg" alt="노란색 룰렛 화살표" />
+            </div>
+          </div>
+        </div>
+
+        <div class="game-actions">
+          <p class="game-status" id="game-status" aria-live="polite">오늘의 선택을 룰렛에 맡겨보세요!</p>
+
+          <div class="game-controls">
+            <button class="roulette-button roulette-button--primary" id="start-button" type="button">
+              <span class="start-button__label">시작하기</span>
+            </button>
+            <div class="game-controls__secondary">
+              <button class="roulette-button roulette-button--secondary" id="shuffle-button" type="button">
+                <img class="roulette-button__icon" src="./design/reference/svg/shuffle.svg" alt="" aria-hidden="true" />
+                <span>섞기</span>
+              </button>
+              <button class="roulette-button roulette-button--secondary" id="reset-button" type="button">
+                <img class="roulette-button__icon" src="./design/reference/svg/reset.svg" alt="" aria-hidden="true" />
+                <span>초기화</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="result-screen" id="result-screen" aria-hidden="true" hidden>
+      <div class="celebration-layer" id="celebration-layer" aria-hidden="true"></div>
+      <section
+        class="result-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-label="룰렛 선택 결과"
+        aria-describedby="result-description"
+      >
+        <button class="result-dialog__close" id="result-close" type="button" aria-label="결과 닫기">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+        </button>
+        <div class="result-dialog__media">
+          <img class="result-dialog__image" id="result-image" alt="" />
+          <video
+            class="result-dialog__video"
+            id="result-video"
+            muted
+            loop
+            playsinline
+            preload="none"
+            aria-hidden="true"
+          ></video>
+        </div>
+        <p class="visually-hidden" id="result-description"></p>
+      </section>
+    </div>
+
+    <noscript><p class="noscript-message">룰렛을 이용하려면 브라우저에서 JavaScript를 켜주세요.</p></noscript>
+  </body>
+</html>
