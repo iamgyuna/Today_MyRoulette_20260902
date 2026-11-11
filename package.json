@@ -1,0 +1,15 @@
+{
+  "name": "today-myroulette",
+  "version": "1.0.0",
+  "private": true,
+  "description": "오늘 뭐 하지? 룰렛과 Markdown 블로그",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "new-post": "node scripts/new-post.mjs",
+    "preview": "npm run build && npx --yes serve _site"
+  },
+  "devDependencies": {
+    "marked": "^15.0.12"
+  }
+}

@@ -1,0 +1,370 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;600;700;800&display=swap");
+
+:root {
+  --yellow: #ffd200;
+  --yellow-soft: #fff6c2;
+  --black: #111111;
+  --charcoal: #292929;
+  --gray: #6b6b6b;
+  --line: #e4e4e4;
+  --white: #ffffff;
+  --radius: 22px;
+  --title-font: "Black Han Sans", "Arial Black", sans-serif;
+  --body-font: "Noto Sans KR", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--body-font);
+  font-size: 17px;
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--black);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* 머리글 ------------------------------------------------------------------ */
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding: 18px max(20px, calc((100% - 760px) / 2));
+  background: var(--yellow);
+  border-bottom: 3px solid var(--black);
+}
+
+.site-header__title {
+  font-family: var(--title-font);
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+
+.site-header__nav {
+  display: flex;
+  gap: 8px;
+}
+
+.site-header__nav a {
+  padding: 6px 14px;
+  border: 2px solid var(--black);
+  border-radius: 999px;
+  background: var(--white);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.site-header__nav a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 var(--black);
+}
+
+/* 본문 틀 ---------------------------------------------------------------- */
+
+.site-main {
+  width: min(100% - 40px, 760px);
+  margin: 0 auto;
+  padding: 48px 0 72px;
+}
+
+.site-footer {
+  padding: 28px 20px 40px;
+  border-top: 1px solid var(--line);
+  color: var(--gray);
+  font-size: 14px;
+  text-align: center;
+}
+
+.hero {
+  margin-bottom: 32px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--title-font);
+  font-size: clamp(40px, 8vw, 64px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+
+.hero p {
+  margin: 8px 0 0;
+  color: var(--gray);
+}
+
+.hero--small h1 {
+  font-size: clamp(32px, 6vw, 48px);
+}
+
+/* 태그 ------------------------------------------------------------------- */
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 999px;
+  background: var(--yellow-soft);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.tag:hover {
+  background: var(--yellow);
+}
+
+.tag-cloud {
+  margin-bottom: 32px;
+}
+
+/* 글 목록 ---------------------------------------------------------------- */
+
+.post-list {
+  display: grid;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-card {
+  padding: 24px 28px;
+  border: 2px solid var(--black);
+  border-radius: var(--radius);
+  background: var(--white);
+  box-shadow: 0 6px 0 var(--black);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 0 var(--black);
+}
+
+.post-card time {
+  color: var(--gray);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.post-card h2 {
+  margin: 4px 0 0;
+  font-size: 23px;
+  line-height: 1.4;
+}
+
+.post-card h2 a {
+  text-decoration: none;
+}
+
+.post-card h2 a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--yellow);
+  text-decoration-thickness: 6px;
+  text-underline-offset: -1px;
+  text-decoration-skip-ink: none;
+}
+
+.post-card p {
+  margin: 8px 0 0;
+  color: var(--charcoal);
+}
+
+.draft {
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.empty {
+  padding: 40px;
+  border: 2px dashed var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+  color: var(--gray);
+}
+
+/* 글 하나 ---------------------------------------------------------------- */
+
+.post__header {
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--black);
+}
+
+.post__header time {
+  color: var(--gray);
+  font-weight: 600;
+}
+
+.post__header h1 {
+  margin: 4px 0 0;
+  font-size: clamp(30px, 6vw, 42px);
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+}
+
+.post__body h2,
+.post__body h3 {
+  margin: 2em 0 0.6em;
+  line-height: 1.4;
+}
+
+.post__body h2 {
+  display: inline-block;
+  padding: 0 6px;
+  background: linear-gradient(transparent 55%, var(--yellow) 55%);
+  font-size: 26px;
+}
+
+.post__body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5em auto;
+  border-radius: var(--radius);
+}
+
+.post__body blockquote {
+  margin: 1.5em 0;
+  padding: 4px 20px;
+  border-left: 6px solid var(--yellow);
+  background: #fafafa;
+  color: var(--charcoal);
+}
+
+.post__body code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #f3f3f3;
+  font-size: 0.9em;
+}
+
+.post__body pre {
+  overflow-x: auto;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: var(--charcoal);
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+.post__body pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+}
+
+.post__body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+}
+
+.post__body th,
+.post__body td {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  text-align: left;
+}
+
+.post__body th {
+  background: var(--yellow-soft);
+}
+
+.post__body hr {
+  margin: 2.5em 0;
+  border: 0;
+  border-top: 2px dashed var(--line);
+}
+
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 56px;
+}
+
+.post-nav a {
+  display: block;
+  padding: 16px 20px;
+  border: 2px solid var(--black);
+  border-radius: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.post-nav a:last-child:not(:first-child) {
+  text-align: right;
+}
+
+.post-nav a:hover {
+  background: var(--yellow);
+}
+
+.post-nav a span {
+  display: block;
+  color: var(--gray);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  body {
+    font-size: 16px;
+  }
+
+  .post-card {
+    padding: 20px;
+  }
+
+  .post-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .post-nav a:last-child:not(:first-child) {
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
